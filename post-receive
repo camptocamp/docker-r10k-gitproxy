@@ -1,0 +1,4 @@
+#!/bin/bash
+if test -d post-receive.d; then
+  /bin/run-parts --regex '\.sh$' post-receive.d
+fi
