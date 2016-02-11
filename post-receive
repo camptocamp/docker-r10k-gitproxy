@@ -1,4 +1,4 @@
 #!/bin/bash
-if test -d /srv/puppetmaster.git/post-receive.d; then
-  /bin/run-parts --regex '\.sh$' /srv/puppetmaster.git/post-receive.d
+if test -d /srv/puppetmaster.git/hooks/post-receive.d; then
+  /bin/run-parts --regex '\.sh$' /srv/puppetmaster.git/hooks/post-receive.d
 fi
