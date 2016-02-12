@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export PATH=/opt/puppetlabs/bin:$PATH
 while read oldrev newrev refname; do
   # R10K
   if [[ $refname =~ 'refs/heads/' ]]; then
