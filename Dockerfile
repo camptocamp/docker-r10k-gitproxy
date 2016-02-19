@@ -45,13 +45,6 @@ COPY post-receive.d /post-receive.d/
 # Define VOLUMES
 VOLUME ["/srv/puppetmaster.git", "/etc/ssh/ssh_host_keys"]
 
-# Install hooks dependencies
-RUN gem install rack github_api --no-ri --no-rdoc
-
-# Configure mcollective client
-RUN sed -i -e 's/stomp1/activemq/' -e 's/6163/61613/' /etc/puppetlabs/mcollective/client.cfg
-COPY plugins/ /opt/puppetlabs/mcollective/plugins/
-
 # Configure entrypoint and command
 COPY /docker-entrypoint.sh /
 COPY /docker-entrypoint.d/* /docker-entrypoint.d/
