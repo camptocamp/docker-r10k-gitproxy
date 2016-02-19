@@ -4,7 +4,7 @@ TMPFILE=$(mktemp --suffix=.json)
 
 cat << EOF > $TMPFILE
 {
-  "ref": "${refname}",
+  "ref": "${refname}"
 }
 EOF
 
