@@ -8,7 +8,7 @@ cat << EOF > $TMPFILE
 }
 EOF
 
-SIG=$((sha1sum  | awk '{print "X-Hub-Signature: sha1="$1}')<<<"${WEBHOOK_SECRET}")
+SIG=$(echo "${WEBHOOK_SECRET}" | sha1sum | awk '{print "X-Hub-Signature: sha1="$1}')
 
 curl -H "Content-Type: application/json" -H "${SIG}" --data "@${TMPFILE}" http://webhook:9000/hooks/r10k
 
