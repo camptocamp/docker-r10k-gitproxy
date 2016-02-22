@@ -2,7 +2,7 @@
 
 DIR="/srv/puppetmaster.git/hooks/"
 
-grep -hor "%{[A-Za-z0-9_]\+}" $DIR | sort | uniq | while read k; do
+grep -hoR "%{[A-Za-z0-9_]\+}" $DIR | sort | uniq | while read k; do
   trim=${k%\}}
   n=${trim#%{}       # calm down, vim }
   v=$(eval "echo \$${n}")
